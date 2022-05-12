@@ -2,7 +2,7 @@ const Sauce = require("../models/Sauce");
 const fs = require("fs");
 
 // création sauce
-exports.creatSauce = (req, res, next) => {
+exports.createSauce = (req, res, next) => {
   const sauceObject = JSON.parse(req.body.sauce);
   delete sauceObject._id;
   const sauce = new Sauce({
@@ -149,7 +149,7 @@ exports.rateSauce = (req, res, next) => {
                 res.status(201).json({ message: "Dislike retiré !" });
               })
               .catch((error) => {
-                res.status(400).json({ error: error });
+                res.status(400).json({ error });
               });
           }
           break;
